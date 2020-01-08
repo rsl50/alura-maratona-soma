@@ -3,7 +3,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#define LINE_SIZE	5
+// considerando 4 dígitos + 0x0A + 0x00
+#define LINE_SIZE	6
 
 int main () {
 	FILE *fp;	
@@ -23,19 +24,19 @@ int main () {
         
         if (n != 0) {
         	int soma = 0;
-			int i; 			
+			int i;
 			
 	        for (i = 1; i <= n; i++) {
-	        	fgets(buf, LINE_SIZE, fp);
-	        	buf[strlen(buf)] = 0;
-	        	soma += strtol(buf, NULL, 10);
+	        	fgets(buf, sizeof buf, fp);
+	        	
+	        	soma += strtol(buf, &end, 10);
 	        		        	
 	        	if (feof(fp)) {
 	        		break;
 	        	}
 	        }		
 	        
-	        printf("%d", soma);
+			printf("%d", soma);
         }
     }
 

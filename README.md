@@ -33,6 +33,7 @@ Seu programa deve produzir uma única linha na saída, contendo a soma de todos 
 **Restrições**
 
 > 0 ≤ N ≤ 50
+
 > |X| ≤ 5000
 
 ###### Exemplo
